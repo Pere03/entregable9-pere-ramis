@@ -18,23 +18,25 @@ public class GameManager : MonoBehaviour
         OpcionesMenu.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         namePlayer = PlayerPrefs.GetString("name", "none");
         loadedName.text = namePlayer;
     }
 
+    //Activa el panel de opciones
     public void Opciones()
     {
         OpcionesMenu.SetActive(true);
     }
 
+    //Cierra el panel de opciones
     public void CerrarOpciones()
     {
         OpcionesMenu.SetActive(false);
     }
 
+    //Con esto podemos guardar el nombre del jugador
     public void SetName()
     {
         saveName = inputText.text;
