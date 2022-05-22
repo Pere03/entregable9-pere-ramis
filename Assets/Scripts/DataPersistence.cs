@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DataPersistence : MonoBehaviour
 {
+    public static DataPersistence sharedInstance;
+
     public string namePlayer;
     public string saveName;
 
@@ -12,26 +13,32 @@ public class DataPersistence : MonoBehaviour
 
     public bool SiNo;
 
-    public float Decimal;
+    public Color32 color;
+    public int colorSeleccionado;
 
-    public Text inputText;
-    public Text loadedName;
-
-    void Start()
+    private void Awake()
     {
-        
+        if (sharedInstance == null)
+        {
+            sharedInstance = this;
+            DontDestroyOnLoad(sharedInstance);
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
-    void Update()
+    public void Data()
     {
-        namePlayer = PlayerPrefs.GetString("name", "none");
-        loadedName.text = namePlayer;
-    }
 
-    //Con esto podemos guardar el nombre del jugador
-    public void SetName()
-    {
-        saveName = inputText.text;
+        PlayerPrefs.SetInt("NIVEL", Nivel);
+
         PlayerPrefs.SetString("name", saveName);
+
+        PlayerPrefs.SetInt("ColorSeleccionado", colorSeleccionado);
+        PlayerPrefs.SetFloat("Azul", color[0]);
+        PlayerPrefs.SetFloat("Verde", color[1]);
+        PlayerPrefs.SetFloat("Magenta", color[2]);
     }
 }

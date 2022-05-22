@@ -1,18 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager sharedInstance;
+    public MeshRenderer player;
+    public Text level;
+    public Text username;
+
+    private void Awake()
     {
-        
+        if (sharedInstance == null)
+        {
+            sharedInstance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        ApplyUserOptions();
+    }
+
+    public void ApplyUserOptions()
+    {
+        player.material.color = DataPersistence.sharedInstance.color;
+        level.text = DataPersistence.sharedInstance.Nivel.ToString();
+        username.text = DataPersistence.sharedInstance.saveName;
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
