@@ -6,12 +6,14 @@ public class DataPersistence : MonoBehaviour
 {
     public static DataPersistence sharedInstance;
 
+    public string truco;
     public string namePlayer;
     public string saveName;
     public int nivel;
     public string Trucos;
     public Color32 color;
     public int color_Seleccionado;
+    public bool sino;
 
     private void Awake()
     {
@@ -36,5 +38,9 @@ public class DataPersistence : MonoBehaviour
         PlayerPrefs.SetFloat("Azul", color[0]);
         PlayerPrefs.SetFloat("Verde", color[1]);
         PlayerPrefs.SetFloat("Magenta", color[2]);
+
+        PlayerPrefs.SetInt("Trucazo", sino ? 1 : 0);
+
+        PlayerPrefs.SetString("TRUCO", truco);
     }
 }

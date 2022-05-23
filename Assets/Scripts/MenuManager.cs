@@ -16,7 +16,8 @@ public class MenuManager : MonoBehaviour
     private int colorSeleccionado;
     public TMP_InputField loadedName;
     public Text loadedLevel;
-    
+    public bool sino2;
+    public Text Truco;
 
 
     void Start()
@@ -28,6 +29,7 @@ public class MenuManager : MonoBehaviour
 
         level = int.Parse(loadedLevel.text);
         LoadUserOptions();
+        Trucos();
     }
 
     private void Update()
@@ -47,8 +49,13 @@ public class MenuManager : MonoBehaviour
         DataPersistence.sharedInstance.saveName = loadedName.text;
 
         DataPersistence.sharedInstance.Data();
+
+        DataPersistence.sharedInstance.truco = Truco.text;
+
+        DataPersistence.sharedInstance.sino = sino2;
     }
 
+    //Con esto cargaremos todas las opciones guardadas una vez iniciemos el juego
     public void LoadUserOptions()
     {
         if (PlayerPrefs.HasKey("Color_Seleccionado"))
@@ -59,6 +66,10 @@ public class MenuManager : MonoBehaviour
             UpdateLevel();
 
             loadedName.text = PlayerPrefs.GetString("NOMBRE");
+
+            Truco.text = PlayerPrefs.GetString("TRUCO");
+
+            sino2 = PlayerPrefs.GetInt("Trucazo") == 1 ? true : false;
         }
     }
 
@@ -111,8 +122,22 @@ public class MenuManager : MonoBehaviour
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    
+
+    //Con esto hacemos que si está activado o no el booleano, pues nos dira si esta activado o desactivado
+    public void Trucos()
+    {
+        sino2 = !sino2;
+
+        if (sino2 == true)
+        {
+            Truco.text = "Activado";
+        }
+
+        if (sino2 == false)
+        {
+            Truco.text = "Desactivado";
+        }
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void Game()
