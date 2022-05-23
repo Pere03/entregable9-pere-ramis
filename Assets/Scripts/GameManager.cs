@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public MeshRenderer player;
     public Text level;
     public Text username;
+    public Text Trucos;
 
     private void Awake()
     {
@@ -33,9 +34,11 @@ public class GameManager : MonoBehaviour
         player.material.color = DataPersistence.sharedInstance.color;
         level.text = DataPersistence.sharedInstance.Nivel.ToString();
         username.text = DataPersistence.sharedInstance.saveName;
+        Trucos.text = DataPersistence.sharedInstance.Trucos;
     }
     public void Menu()
     {
         SceneManager.LoadScene(0);
+        
     }
 }

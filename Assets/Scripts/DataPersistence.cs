@@ -9,9 +9,10 @@ public class DataPersistence : MonoBehaviour
     public string namePlayer;
     public string saveName;
 
+
     public int Nivel;
 
-    public bool SiNo;
+    public string Trucos;
 
     public Color32 color;
     public int colorSeleccionado;
@@ -31,6 +32,8 @@ public class DataPersistence : MonoBehaviour
 
     public void Data()
     {
+        PlayerPrefs.SetString("TRUCOS", Trucos);
+        
 
         PlayerPrefs.SetInt("NIVEL", Nivel);
 

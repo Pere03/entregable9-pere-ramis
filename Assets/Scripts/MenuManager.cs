@@ -15,6 +15,9 @@ public class MenuManager : MonoBehaviour
     private int colorSeleccionado;
     public Text loadedName;
     public Text loadedLevel;
+    
+    //public Toggle ftoggle;
+    //public Toggle paco;
 
     void Start()
     {
@@ -24,6 +27,13 @@ public class MenuManager : MonoBehaviour
         }
         level = int.Parse(loadedLevel.text);
         LoadUserOptions();
+
+        //ftoggle = GetComponent<Toggle>();
+
+        //if (ftoggle.isOn)
+        {
+
+        }
     }
 
     private void Update()
@@ -41,6 +51,8 @@ public class MenuManager : MonoBehaviour
         DataPersistence.sharedInstance.Nivel = level;
 
         DataPersistence.sharedInstance.saveName = loadedName.text;
+
+        
     }
 
     public void LoadUserOptions()
@@ -51,6 +63,8 @@ public class MenuManager : MonoBehaviour
 
             level = PlayerPrefs.GetInt("NIVEL");
             UpdateLevel();
+
+            
 
             loadedName.text = PlayerPrefs.GetString("name");
         }
@@ -104,6 +118,31 @@ public class MenuManager : MonoBehaviour
         loadedLevel.text = level.ToString();
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+
+    
+    /*
+    public void ToggleButton()
+    {
+        if (toggle.isOn)
+        {
+            Trucos = gameObject.GetComponent<Toggle>().isOn;
+
+            if (Trucos)
+            {
+                loadedTruco.text = "Activado";
+            }
+            
+            if (!Trucos)
+            {
+                loadedTruco.text = "Desactivado";
+            }
+            
+        }
+    }
+    */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void Game()
     {
