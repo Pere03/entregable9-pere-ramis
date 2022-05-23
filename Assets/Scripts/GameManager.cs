@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public void ApplyUserOptions()
     {
         player.material.color = DataPersistence.sharedInstance.color;
-        level.text = DataPersistence.sharedInstance.Nivel.ToString();
+        level.text = DataPersistence.sharedInstance.nivel.ToString();
         username.text = DataPersistence.sharedInstance.saveName;
         Trucos.text = DataPersistence.sharedInstance.Trucos;
     }

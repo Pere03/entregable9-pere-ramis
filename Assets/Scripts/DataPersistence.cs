@@ -8,14 +8,10 @@ public class DataPersistence : MonoBehaviour
 
     public string namePlayer;
     public string saveName;
-
-
-    public int Nivel;
-
+    public int nivel;
     public string Trucos;
-
     public Color32 color;
-    public int colorSeleccionado;
+    public int color_Seleccionado;
 
     private void Awake()
     {
@@ -32,14 +28,11 @@ public class DataPersistence : MonoBehaviour
 
     public void Data()
     {
-        PlayerPrefs.SetString("TRUCOS", Trucos);
-        
-
-        PlayerPrefs.SetInt("NIVEL", Nivel);
+        PlayerPrefs.SetInt("Nivel", nivel);
 
         PlayerPrefs.SetString("NOMBRE", saveName);
 
-        PlayerPrefs.SetInt("ColorSeleccionado", colorSeleccionado);
+        PlayerPrefs.SetInt("Color_Seleccionado", color_Seleccionado);
         PlayerPrefs.SetFloat("Azul", color[0]);
         PlayerPrefs.SetFloat("Verde", color[1]);
         PlayerPrefs.SetFloat("Magenta", color[2]);
