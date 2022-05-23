@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         ApplyUserOptions();
     }
 
+    //Con esto aplicamos la configuracion que hemos tocado en el menu de opciones y se aplica al juego
     public void ApplyUserOptions()
     {
         player.material.color = DataPersistence.sharedInstance.color;

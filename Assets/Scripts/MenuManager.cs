@@ -16,8 +16,7 @@ public class MenuManager : MonoBehaviour
     public Text loadedName;
     public Text loadedLevel;
     
-    //public Toggle ftoggle;
-    //public Toggle paco;
+
 
     void Start()
     {
@@ -27,13 +26,6 @@ public class MenuManager : MonoBehaviour
         }
         level = int.Parse(loadedLevel.text);
         LoadUserOptions();
-
-        //ftoggle = GetComponent<Toggle>();
-
-        //if (ftoggle.isOn)
-        {
-
-        }
     }
 
     private void Update()
@@ -51,8 +43,6 @@ public class MenuManager : MonoBehaviour
         DataPersistence.sharedInstance.Nivel = level;
 
         DataPersistence.sharedInstance.saveName = loadedName.text;
-
-        
     }
 
     public void LoadUserOptions()
@@ -64,15 +54,13 @@ public class MenuManager : MonoBehaviour
             level = PlayerPrefs.GetInt("NIVEL");
             UpdateLevel();
 
-            
-
-            loadedName.text = PlayerPrefs.GetString("name");
+            loadedName.text = PlayerPrefs.GetString("NOMBRE");
         }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //Con esto podemos seleccionar mediante las flechas del teclado, que color queremos para nuestro jugador
+    //Con esto podemos seleccionar mediante las flechas del teclado, que color queremos para nuestro jugador
     private void ColorSelection()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -122,27 +110,6 @@ public class MenuManager : MonoBehaviour
     
     
 
-    
-    /*
-    public void ToggleButton()
-    {
-        if (toggle.isOn)
-        {
-            Trucos = gameObject.GetComponent<Toggle>().isOn;
-
-            if (Trucos)
-            {
-                loadedTruco.text = "Activado";
-            }
-            
-            if (!Trucos)
-            {
-                loadedTruco.text = "Desactivado";
-            }
-            
-        }
-    }
-    */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void Game()
     {

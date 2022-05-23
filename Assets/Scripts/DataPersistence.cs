@@ -37,7 +37,7 @@ public class DataPersistence : MonoBehaviour
 
         PlayerPrefs.SetInt("NIVEL", Nivel);
 
-        PlayerPrefs.SetString("name", saveName);
+        PlayerPrefs.SetString("NOMBRE", saveName);
 
         PlayerPrefs.SetInt("ColorSeleccionado", colorSeleccionado);
         PlayerPrefs.SetFloat("Azul", color[0]);
